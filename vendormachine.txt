@@ -1,0 +1,53 @@
+#include <stdio.h>
+void displaymenu()
+{
+  printf("\n       VENDING MACHINE        \n");
+  printf("1.Chips     : Rs.20.00\n");
+  printf("2.Soda      : Rs.30.00\n");
+  printf("3.Chocolate : Rs.50.00\n");
+  printf("4.Bisuits   : Rs.10.00\n");
+  printf("5.Exit\n");
+  printf("                        \n");
+}
+int main()
+{
+  int Choice,Amount,Price,Change;
+  while(1)
+  {
+    displaymenu();
+    printf("Enter the item number(1-4) or 5 to exit: ");
+    scanf("%d",&Choice);
+    switch (Choice)
+    {
+      case 1: Price = 20.00;
+      break;
+      case 2: Price = 30.00;
+      break;
+      case 3: Price = 50.00;
+      break;
+      case 4: Price = 10.00;
+      break;
+      case 5: printf("Thankyou for using the vending machine!\n");
+      return 0;
+      default: printf("Invalid choice!Please try again.\n");
+      continue;
+   }
+   printf("Enter amount(Rs): ");
+   scanf("%d",&Amount);
+   if(Amount<Price)
+   {
+     printf("Insufficient funds!Please enter atleast Rs.%d\n",Price);
+   }
+   else
+   {
+     Change=Amount-Price;
+   }
+   printf("Dispensing item...\n");
+   if(Change>0)
+   {
+     printf("Collect your change:Rs%d\n",Change);
+   }
+   printf("Thankyou for your purchase!\n");
+}
+return 0;
+}
